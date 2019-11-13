@@ -82,8 +82,9 @@ public class Logic {
                     countCell = table[row][row] == table[cell][row] ? countCell + 1 : countCell;
                 }
             }
-            if (countCell == table.length || countRow == table.length) {
-                result = true;
+            result = countCell == table.length || countRow == table.length;
+            if (result) {
+                break;
             }
         }
         return result;
