@@ -73,7 +73,7 @@ public class Logic {
         boolean result = false;
         int countRow;
         int countCell;
-        for (int row = 0; row < table.length; row++) {
+        for (int row = 0; row < table.length && !result; row++) {
             countRow = 0;
             countCell = 0;
             for (int cell = 0; cell < table.length; cell++) {
@@ -83,9 +83,6 @@ public class Logic {
                 }
             }
             result = countCell == table.length || countRow == table.length;
-            if (result) {
-                break;
-            }
         }
         return result;
     }
