@@ -50,4 +50,10 @@ public class BishopBlackTest {
         Cell[] expect = {Cell.F4, Cell.E3, Cell.D2, Cell.C1};
         assertThat(cell, is(expect));
     }
+    @Test
+    public void whenMoveNotDiagonal() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.C1);
+        boolean expect = bishopBlack.isDiagonal(Cell.C1, Cell.C3);
+        assertThat(expect, is(false));
+    }
 }
