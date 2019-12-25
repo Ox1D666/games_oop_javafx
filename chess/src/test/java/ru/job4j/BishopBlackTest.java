@@ -23,10 +23,31 @@ public class BishopBlackTest {
         assertThat(cell, is(Cell.E3));
     }
     @Test
-    public void whenMoveFigure() {
+    public void whenMoveFigureUpAndRight() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Cell[] cell = bishopBlack.way(Cell.C1, Cell.G5);
         Cell[] expect = {Cell.D2,Cell.E3,Cell.F4,Cell.G5};
+        assertThat(cell, is(expect));
+    }
+    @Test
+    public void whenMoveFigureUpAndLeft() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.F1);
+        Cell[] cell = bishopBlack.way(Cell.F1, Cell.D3);
+        Cell[] expect = {Cell.E2,Cell.D3};
+        assertThat(cell, is(expect));
+    }
+    @Test
+    public void whenMoveFigureDownAndRight() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.D3);
+        Cell[] cell = bishopBlack.way(Cell.D3, Cell.F1);
+        Cell[] expect = {Cell.E2,Cell.F1};
+        assertThat(cell, is(expect));
+    }
+    @Test
+    public void whenMoveFigureDownAndLeft() {
+        BishopBlack bishopBlack = new BishopBlack(Cell.G5);
+        Cell[] cell = bishopBlack.way(Cell.G5, Cell.C1);
+        Cell[] expect = {Cell.F4, Cell.E3, Cell.D2, Cell.C1};
         assertThat(cell, is(expect));
     }
 }

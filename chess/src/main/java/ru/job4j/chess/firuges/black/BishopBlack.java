@@ -32,7 +32,9 @@ public class BishopBlack implements Figure {
         int deltaX = dest.x - source.x < 0 ? -1 : 1;
         int deltaY = dest.y - source.y < 0 ? -1 : 1;
             for (int index = 0; index < size; index++) {
-                steps[index] = Cell.values()[8 * (source.x + deltaX * (index + 1)) + (source.y + deltaY * (index + 1))];
+                int x = deltaX > 0 ? source.x + index + deltaX : source.x - index + deltaX;
+                int y = deltaY > 0 ? source.y + index + deltaY : source.y - index + deltaY;
+                steps[index] = Cell.findBy(x, y);
             }
             return steps;
         }
