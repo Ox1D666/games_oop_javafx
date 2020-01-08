@@ -30,9 +30,11 @@ public class Logic {
                 for (int i = 0; i < steps.length; i++) {
                     if (this.findBy(steps[i]) != -1) {
                         break;
-                    } else if (this.findBy(steps[i]) == -1 && steps.length > 0 && steps[steps.length - 1].equals(dest)) {
-                        rst = true;
-                        this.figures[index] = this.figures[index].copy(dest);
+                    } else if (this.findBy(steps[i]) == -1) {
+                        if (steps[steps.length - 1].equals(dest)) {
+                            rst = true;
+                            this.figures[index] = this.figures[index].copy(dest);
+                        }
                     }
                 }
             }
