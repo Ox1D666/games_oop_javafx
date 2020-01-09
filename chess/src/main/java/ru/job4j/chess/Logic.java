@@ -33,16 +33,19 @@ public class Logic {
         return rst;
     }
 
-    private boolean isFree(Cell source, Cell dest) {
+    private boolean isFree(Cell source, Cell dest) throws ImpossibleMovementException {
         boolean wayFree = false;
         int index = this.findBy(source);
         Cell[] steps = this.figures[index].way(source, dest);
-        for (int i = 0; i < steps.length; i++) {
-            if (this.findBy(steps[i]) != -1) {
-                break;
-            } else
-                wayFree = true;
-        }
+            for (int i = 0; i < steps.length; i++) {
+                if (this.findBy(steps[i]) != -1) {
+                    break;
+                } else
+                    wayFree = true;
+            }
+            if (!wayFree) {
+                throw new ImpossibleMovementException("The way is blocked.");
+            }
         return wayFree;
     }
 
